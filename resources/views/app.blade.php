@@ -13,7 +13,35 @@
   </head>
   <body>
 
-<h1>Hallo hehe</h1>
+    <!-- Fixed navbar -->
+      <div class="navbar navbar-default " role="navigation">
+        <div class="container">
+          <div class="navbar-header">
+            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+              <span class="sr-only">Toggle navigation</span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+              <span class="icon-bar"></span>
+            </button>
+            <a class="navbar-brand" href="index.html"><img src="./images/corsair-logo.png" alt="logo"></a>
+          </div>
+          <div class="navbar-collapse collapse navbar-right">
+            <ul class="nav navbar-nav">
+              <li class="active"><a href="">HOME</a></li>
+              <li><a href="about.html">ABOUT</a></li>
+              <li><a href="contact.html">CONTACT</a></li>
+              <li class="dropdown">
+                <a href="#" class="dropdown-toggle" data-toggle="dropdown">ACCOUNT <b class="caret"></b></a>
+                <ul class="dropdown-menu">
+                  <li><a href="blog.html">Login</a></li>
+                  <li><a href="single-post.html">Register</a></li>
+                </ul>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
 
 
 
