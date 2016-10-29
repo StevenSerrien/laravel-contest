@@ -1,6 +1,59 @@
 @import url('https://fonts.googleapis.com/css?family=Raleway:300,400|Rubik');
 
 
+.call-to-action {
+  background-image: url('../images/call-to-action-image.jpg');
+  background-size: cover;
+
+  height: 60vh;
+  min-height: 60vh;
+  position: relative;
+
+
+}
+
+.call-to-action .headtitle {
+  position: relative;
+  top:15%;
+}
+
+.headtitle a {
+  padding: 1.2em 3em;
+  background: #f0cf1e;
+  text-decoration: none;
+  color: #000;
+  font-weight: 300;
+  font-size: 1.3em;
+  letter-spacing: 0.1em;
+  margin: 0 auto;
+  text-transform: uppercase;
+  font-family: 'Raleway', sans-serif;
+
+  position: relative;
+  top: 100px;
+}
+
+.headtitle a:hover {
+  background: white;
+}
+
+
+
+.call-to-action h1 {
+  color: #e5e903 !important;
+  font-family: 'Raleway', sans-serif;
+  font-weight: 300;
+}
+
+
+
+
+
+
+
+
+
+
 /** NAVBAR **/
 .navbar {
 	min-height: 75px;
@@ -47,7 +100,7 @@
 }
 
 .navbar-default {
-	background-color: #343939;
+	background-color: #1d1d1d;
 	border-color: transparent;
 }
 

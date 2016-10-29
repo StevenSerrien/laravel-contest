@@ -16,3 +16,5 @@
 // });
 
 Route::get('/', 'PagesController@index');
+
+Route::get('/contest', 'PagesController@contestHome');

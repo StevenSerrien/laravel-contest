@@ -7,6 +7,10 @@ use Illuminate\Http\Request;
 class PagesController extends Controller
 {
     public function index() {
-      return view('app');
+      return view('pages/home');
+    }
+
+    public function contestHome() {
+      return view('pages/contest-home');
     }
 }
