@@ -23,8 +23,7 @@ class CreateUsersTable extends Migration
             $table->string('country');
 
 
-            $table->integer('log_id')->index()->unsigned();
-            $table->foreign('log_id')->references('id')->on('logs')->onDelete('cascade');
+            
 
             $table->string('email')->unique();
             $table->string('password');
