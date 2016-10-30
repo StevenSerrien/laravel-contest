@@ -8,3 +8,8 @@ class Role extends Model
 {
     //
 }
+
+// A role can have many users
+public function users() {
+  return $this->belongsToMany('App\User')
+}

@@ -14,7 +14,7 @@ class CreateUsersTable extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->increments('id');
+            $table->increments('id')->unsigned();
             $table->string('firstName');
             $table->string('lastName');
             $table->string('streetName');
@@ -22,12 +22,22 @@ class CreateUsersTable extends Migration
             $table->string('city');
             $table->string('country');
 
+
+            $table->integer('log_id')->index()->unsigned();
+            $table->foreign('log_id')->references('id')->on('logs')->onDelete('cascade');
+
             $table->string('email')->unique();
             $table->string('password');
+
+
 
             $table->softDeletes();
             $table->rememberToken();
             $table->timestamps();
+
+
+
+
         });
     }
 

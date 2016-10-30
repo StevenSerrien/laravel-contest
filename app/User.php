@@ -40,4 +40,13 @@ class User extends Authenticatable
   }
 
   protected $dates = ['deleted_at'];
+
+  public function roles() {
+    return $this->belongsToMany('App\Role')
+  }
+
+  public function log()
+    {
+        return $this->hasOne('App\Log');
+    }
 }
