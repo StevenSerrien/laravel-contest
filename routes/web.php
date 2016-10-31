@@ -28,6 +28,8 @@ Auth::routes();
 Route::group(['middleware' => 'admin'], function()
 {
   Route::get('/dashboard', 'AdminController@index');
+  Route::get('/dashboard/create', 'AdminController@create');
+
 
 });
 

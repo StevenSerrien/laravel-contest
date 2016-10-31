@@ -10,7 +10,8 @@
 
     <!-- Latest compiled and minified CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
-    <link rel="stylesheet" href="./css/styles.css">
+    {{-- <link rel="stylesheet" href="./css/styles.css"> --}}
+    <link href="{{ asset('/css/styles.css') }}" rel="stylesheet" type="text/css" >
 
     <!-- Scripts -->
     <script>
@@ -31,7 +32,7 @@
               <span class="icon-bar"></span>
               <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="{{ url('/') }}" ><img src="./images/corsair-logo.png" alt="logo"></a>
+            <a class="navbar-brand" href="{{ url('/') }}" ><img src="{{ asset('/images/corsair-logo.png') }}" alt="logo"></a>
           </div>
           <div class="navbar-collapse collapse navbar-right">
             <ul class="nav navbar-nav">

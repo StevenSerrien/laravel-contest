@@ -33,6 +33,7 @@
         </table>
       </div>
       <h1 class="text-center">Lijst van alle contests</h1>
+      <button><a href="{{ url('/dashboard/create')}}">Maak een nieuwe wedstrijd aan</a></button>
       <div class='col-md-12'>
         <table class="table">
           @foreach ($contests as $contest)

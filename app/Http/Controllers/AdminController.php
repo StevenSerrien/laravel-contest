@@ -31,6 +31,17 @@ class AdminController extends Controller
         return view('admin.dashboard', compact(['users', 'contests']));
     }
 
+    public function create()
+    {
+        return view('admin.create');
+    }
+
+    public function createContest()
+    {
+        return redirect('/dashboard');
+    }
+
+
     public function destroy($id)
     {
       $user = User::findOrFail($id);
