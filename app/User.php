@@ -34,10 +34,11 @@ class User extends Authenticatable
   *
   * @var string
   */
-  public function setPasswordAttribute($value)
-  {
-    $this->attributes['password'] = \Hash::make($value);
-  }
+  // public function setPasswordAttribute($value)
+  // {
+  //   $this->attributes['password'] = \Hash::make($value);
+  // }
+
 
   protected $dates = ['deleted_at'];
 

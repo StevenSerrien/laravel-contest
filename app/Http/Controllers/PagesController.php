@@ -10,7 +10,7 @@ class PagesController extends Controller
       return view('pages/home');
     }
 
-    public function contestHome() {
+    public function contestsHome() {
       return view('pages/contest-home');
     }
 }

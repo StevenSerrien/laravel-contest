@@ -48,7 +48,12 @@ class RegisterController extends Controller
     protected function validator(array $data)
     {
         return Validator::make($data, [
-            'name' => 'required|max:255',
+            'firstName' => 'required|max:255',
+            'lastName' => 'required|max:255',
+            'streetName' => 'required|max:255',
+            'houseNumber' => 'required|max:255',
+            'city' => 'required|max:255',
+            'country' => 'required|max:255',
             'email' => 'required|email|max:255|unique:users',
             'password' => 'required|min:6|confirmed',
         ]);
@@ -62,10 +67,18 @@ class RegisterController extends Controller
      */
     protected function create(array $data)
     {
-        return User::create([
-            'name' => $data['name'],
+        $user = User::create([
+            'firstName' => $data['firstName'],
+            'lastName' => $data['lastName'],
+            'streetName' => $data['streetName'],
+            'houseNumber' => $data['houseNumber'],
+            'city' => $data['city'],
+            'country' => $data['city'],
             'email' => $data['email'],
             'password' => bcrypt($data['password']),
         ]);
+        //Add default member role to new users
+        $user->roles()->attach(2);
+        return $user;
     }
 }

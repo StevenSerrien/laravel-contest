@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use App\User;
 
 class AdminController extends Controller
@@ -27,5 +28,13 @@ class AdminController extends Controller
         $users = User::all();
         return view('admin.dashboard', compact('users'));
     }
-    
+
+    public function destroy($id)
+    {
+      $user = User::findOrFail($id);
+      $user->delete();
+
+      return redirect('/dashboard');
+    }
+
 }

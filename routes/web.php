@@ -20,19 +20,46 @@ use App\Role;
 
 Route::get('/', 'PagesController@index');
 
-Route::get('/contest', 'PagesController@contestHome');
+Route::get('/contests', 'PagesController@contestsHome');
 
 Auth::routes();
 
+Route::group(['middleware' => 'admin'], function()
+{
+  Route::get('/dashboard', 'AdminController@index');
+});
+
 Route::get('/home', 'HomeController@index');
 
-Route::get('/dashboard', 'AdminController@index');
+
+Route::get('/denied', 'ErrorController@denied');
+
+
+
+
+Route::get('/user/delete/{id}', 'AdminController@destroy');
+
 
 Route::get('/sql', function(){
-  // $user = User::create(['firstName' => 'Edward', 'lastName' => 'Vereertbrugghen',
-  // 'streetName' => 'Kammenstraat', 'houseNumber' => '18',
-  // 'city' => 'Antwerpen', 'country' => 'Belgium', 'email' => 'e.vereertbrugghen@gmail.com', 'password' => 'hallo123']);
+
+   return Auth::user()->roles()->first()->name;
+    //Auth::user()->roles()->attach(2);
+  // $user = User::where('firstName', 'Scarlett')->first();
+  // $user->roles()->attach(2);
 
 
-  return User::with('roles')->find(9);
+
+  // User::withTrashed()->find(10)->restore();
+
+  // $user = User::where('id', 10)->first();
+  // $user->roles()->attach(1);
+
+  // $user = User::where('firstName', 'Steven')->with('roles')->first();
+  // return $user->roles[0]->name;
+  //  $user = User::create(['firstName' => 'Edward', 'lastName' => 'Vereertbrugghen',
+  //  'streetName' => 'Kammenstraat', 'houseNumber' => '18',
+  //  'city' => 'Antwerpen', 'country' => 'Belgium', 'email' => 'e.vereertbrugghen@gmail.com', 'password' => 'hallo123']);
+
+
+  //return User::with('roles')->find(9);
 });

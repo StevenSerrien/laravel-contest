@@ -26,7 +26,7 @@
                 {{ $user->city }}, {{$user->country}}
               </td>
               <td>
-                <button type="button" name="button">Delete</button>
+                <a href="/user/delete/{{$user->id}}">Delete</a>
               </td>
             </tr>
           @endforeach
