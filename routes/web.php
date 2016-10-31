@@ -1,5 +1,8 @@
 <?php
 
+use App\User;
+use App\Role;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,3 +25,14 @@ Route::get('/contest', 'PagesController@contestHome');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index');
+
+Route::get('/dashboard', 'AdminController@index');
+
+Route::get('/sql', function(){
+  // $user = User::create(['firstName' => 'Edward', 'lastName' => 'Vereertbrugghen',
+  // 'streetName' => 'Kammenstraat', 'houseNumber' => '18',
+  // 'city' => 'Antwerpen', 'country' => 'Belgium', 'email' => 'e.vereertbrugghen@gmail.com', 'password' => 'hallo123']);
+
+
+  return User::with('roles')->find(9);
+});
