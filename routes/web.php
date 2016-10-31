@@ -29,6 +29,7 @@ Route::group(['middleware' => 'admin'], function()
 {
   Route::get('/dashboard', 'AdminController@index');
   Route::get('/dashboard/create', 'AdminController@create');
+  Route::post('/dashboard', 'AdminController@store');
 
 
 });
