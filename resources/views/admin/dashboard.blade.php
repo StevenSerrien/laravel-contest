@@ -32,7 +32,24 @@
           @endforeach
         </table>
       </div>
+      <h1 class="text-center">Lijst van alle contests</h1>
+      <div class='col-md-12'>
+        <table class="table">
+          @foreach ($contests as $contest)
+            <tr>
+              <td>
+                {{ $contest->name }}
+              </td>
+              <td>
+                {{ $contest->description }}
+              </td>
+            </tr>
+          @endforeach
+        </table>
+      </div>
     </div>
+    </div>
+
 </div>
 
 {{-- @foreach ($users as $user)

@@ -41,8 +41,13 @@
               <li><a href="{{ url('/register') }}">REGISTER</a></li>
               @else
                 <li class="dropdown">
+                  @if ((Auth::user()->roles()->first()->name) == "administrator")
+                    <a href="{{ url('/dashboard') }}">
+                        CONTESTS
+                    </a>
+                  @endif
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
-                        {{ Auth::user()->name }} <span class="caret"></span>
+                        {{ Auth::user()->firstName }} <span class="caret"></span>
                     </a>
 
                     <ul class="dropdown-menu" role="menu">

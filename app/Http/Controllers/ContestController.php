@@ -4,10 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
-use App\User;
 use App\Contest;
 
-class AdminController extends Controller
+class ContestController extends Controller
 {
     /**
      * Create a new controller instance.
@@ -27,8 +26,7 @@ class AdminController extends Controller
     public function index()
     {
         $users = User::all();
-        $contests = Contest::all();
-        return view('admin.dashboard', compact(['users', 'contests']));
+        return view('admin.dashboard', compact('users'));
     }
 
     public function destroy($id)

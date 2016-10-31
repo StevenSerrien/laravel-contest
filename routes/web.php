@@ -2,6 +2,7 @@
 
 use App\User;
 use App\Role;
+use App\Contest;
 
 /*
 |--------------------------------------------------------------------------
@@ -27,6 +28,7 @@ Auth::routes();
 Route::group(['middleware' => 'admin'], function()
 {
   Route::get('/dashboard', 'AdminController@index');
+
 });
 
 Route::get('/home', 'HomeController@index');
@@ -42,7 +44,9 @@ Route::get('/user/delete/{id}', 'AdminController@destroy');
 
 Route::get('/sql', function(){
 
-   return Auth::user()->roles()->first()->name;
+
+  return $contests = Contest::all();
+  //  return Auth::user()->roles()->first()->name;
     //Auth::user()->roles()->attach(2);
   // $user = User::where('firstName', 'Scarlett')->first();
   // $user->roles()->attach(2);
