@@ -24,6 +24,7 @@ Route::get('/', 'PagesController@index');
 
 Route::get('/contests', 'ContestController@index');
 Route::get('/contests/{id}', 'ContestController@show');
+Route::post('/contests', 'ContestController@store');
 
 Auth::routes();
 

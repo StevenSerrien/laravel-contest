@@ -36,12 +36,14 @@ class ContestController extends Controller
       return view('pages/contest-detail', compact(['contest']));
     }
 
-    public function destroy($id)
-    {
-      $user = User::findOrFail($id);
-      $user->delete();
+    public function store(Request $request){
 
-      return redirect('/dashboard');
+
+      return redirect('/contests');
+
+
     }
+
+
 
 }
