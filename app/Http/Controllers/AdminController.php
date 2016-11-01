@@ -7,7 +7,8 @@ use Illuminate\Http\RedirectResponse;
 use App\User;
 use App\Contest;
 use App\Question;
-// use Request;
+//use Request;
+use App\Http\Requests\createContestRequest;
 
 
 class AdminController extends Controller
@@ -45,7 +46,11 @@ class AdminController extends Controller
         return redirect('/dashboard');
     }
 
-    public function store(Request $request){
+    public function store(createContestRequest $request){
+
+
+
+
       $contest = Contest::create([
           'name' => $request->get('name'),
           'description' => $request->get('description'),
