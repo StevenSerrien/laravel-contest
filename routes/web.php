@@ -3,6 +3,7 @@
 use App\User;
 use App\Role;
 use App\Contest;
+Use Carbon\Carbon;
 
 /*
 |--------------------------------------------------------------------------
@@ -21,7 +22,8 @@ use App\Contest;
 
 Route::get('/', 'PagesController@index');
 
-Route::get('/contests', 'PagesController@contestsHome');
+Route::get('/contests', 'ContestController@index');
+Route::get('/contests/{id}', 'ContestController@show');
 
 Auth::routes();
 
@@ -47,8 +49,10 @@ Route::get('/user/delete/{id}', 'AdminController@destroy');
 
 Route::get('/sql', function(){
 
+  // Get all contests with their questions in JSON
+  // return Contest::with('questions')->findOrFail(8);
 
-  return $contests = Contest::all();
+// return Contest::where('id', 8)->with('questions')->get();
   //  return Auth::user()->roles()->first()->name;
     //Auth::user()->roles()->attach(2);
   // $user = User::where('firstName', 'Scarlett')->first();

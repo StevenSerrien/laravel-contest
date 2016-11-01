@@ -31,7 +31,8 @@ class AdminController extends Controller
     {
         $users = User::all();
         $contests = Contest::all();
-        return view('admin.dashboard', compact(['users', 'contests']));
+        $contestsWithQuestions = Contest::with('questions')->get();
+        return view('admin.dashboard', compact(['users', 'contests', 'contestsWithQuestions']));
     }
 
     public function create()
@@ -48,6 +49,8 @@ class AdminController extends Controller
       $contest = Contest::create([
           'name' => $request->get('name'),
           'description' => $request->get('description'),
+          'start_date' => $request->get('start_date'),
+          'end_date' => $request->get('end_date')
       ]);
        Question::create([
           'question' => $request->get('question1'),
@@ -60,6 +63,8 @@ class AdminController extends Controller
           'answer' => $request->get('answer2'),
           'contest_id' => $contest->id
       ]);
+
+      return redirect('/dashboard');
 
 
     }

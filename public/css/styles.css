@@ -51,6 +51,20 @@
 }
 
 
+/** CONTEST PAGES **/
+.contestItem {
+  background-color: rgb(215, 215, 215);
+  padding: 15px;
+  min-height: 100px;
+}
+
+.contestItem:hover {
+  background-color: rgb(171, 171, 171);
+}
+
+.fa-gamepad {
+  font-size: 3em;
+}
 
 
 

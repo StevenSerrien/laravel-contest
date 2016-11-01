@@ -35,6 +35,15 @@
                       {!! Form::text('answer2', null, ["class" => "form-control"]) !!}
                     </div>
 
+                    <div class="form group">
+                      {!! Form::label('start_date', 'Start date:') !!}
+                      {!! Form::input('date' ,'start_date', date('Y-n-d'), ["class" => "form-control"]) !!}
+                    </div>
+                    <div class="form group">
+                      {!! Form::label('end_date', 'End date:') !!}
+                      {!! Form::input('date', 'end_date', null, ["class" => "form-control"]) !!}
+                    </div>
+
                   <div class="form-group">
                     {!! Form::submit('Add contest', ['class' => 'btn btn-primary form-control']) !!}
                   </div>

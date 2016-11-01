@@ -33,10 +33,36 @@
         </table>
       </div>
       <h1 class="text-center">Lijst van alle contests</h1>
-      <button><a href="{{ url('/dashboard/create')}}">Maak een nieuwe wedstrijd aan</a></button>
+
       <div class='col-md-12'>
-        <table class="table">
-          @foreach ($contests as $contest)
+        <table class="table table-bordered">
+          <tr>
+            <th>
+              Contest
+            </th>
+            <th>
+              Description
+            </th>
+            <th>
+              Question 1
+            </th>
+            <th>
+              Answer 1
+            </th>
+            <th>
+              Question 2
+            </th>
+            <th>
+              Answer 2
+            </th>
+            <th>
+             Start
+            </th>
+            <th>
+              End
+            </th>
+          </tr>
+          @foreach ($contestsWithQuestions as $contest)
             <tr>
               <td>
                 {{ $contest->name }}
@@ -44,9 +70,24 @@
               <td>
                 {{ $contest->description }}
               </td>
+              @foreach ($contest->questions as $question)
+                <td>
+                  {{ $question->question }}
+                </td>
+                <td>
+                  {{ $question->answer }}
+                </td>
+              @endforeach
+              <td>
+                {{ $contest->start_date }}
+              </td>
+              <td>
+                {{ $contest->end_date }}
+              </td>
             </tr>
           @endforeach
         </table>
+        <button><a href="{{ url('/dashboard/create')}}">Maak een nieuwe wedstrijd aan</a></button>
       </div>
     </div>
     </div>
