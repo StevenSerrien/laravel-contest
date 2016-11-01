@@ -9,4 +9,11 @@ class ErrorController extends Controller
     public function denied() {
       return view('errors/denied');
     }
+
+    public function notFound() {
+      return view('errors/404');
+    }
+
+
+    
 }

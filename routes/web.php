@@ -42,6 +42,8 @@ Route::get('/home', 'HomeController@index');
 
 Route::get('/denied', 'ErrorController@denied');
 
+Route::get('/404', 'ErrorController@notFound');
+
 
 
 

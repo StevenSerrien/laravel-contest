@@ -31,10 +31,17 @@ class ContestController extends Controller
     }
 
     public function show($id) {
-      $contest = Contest::with('questions')->findOrFail($id);
+      $contest = Contest::with('questions')->find($id);
 
+      dd($contest->end_date);
+
+      if (is_null($contest)) {
+        return redirect('/404');
+      }
       return view('pages/contest-detail', compact(['contest']));
     }
+
+
 
     public function store(Request $request){
 

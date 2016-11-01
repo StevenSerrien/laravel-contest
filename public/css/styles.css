@@ -55,7 +55,7 @@
 .contestItem {
   background-color: rgb(215, 215, 215);
   padding: 15px;
-  min-height: 100px;
+  min-height: 250px !important;
 }
 
 .contestItem:hover {
