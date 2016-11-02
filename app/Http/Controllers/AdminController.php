@@ -47,8 +47,10 @@ class AdminController extends Controller
         return redirect('/dashboard');
     }
 
-    public function checkCompetitors() {
-        return view('admin.dashboard-contest-competitors');
+    public function checkCompetitors($id) {
+        $contestUsers = Contest::find($id)->users()->get();
+
+        return view('admin.dashboard-contest-competitors', compact(['contestUsers']));
     }
 
     public function store(createContestRequest $request){

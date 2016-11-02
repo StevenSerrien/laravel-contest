@@ -21,7 +21,7 @@ class Contest extends Model
   }
 
   public function users() {
-    return $this->belongsToMany('App\Contest');
+    return $this->belongsToMany('App\User');
   }
 
 }
