@@ -24,14 +24,7 @@ class applyForContestRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => 'required',
-            'description' => 'required',
-            'question1' => 'required',
-            'answer1' => 'required',
-            'question2' => 'required',
-            'answer2' => 'required',
-            'start_date' => 'required',
-            'end_date' => 'required'
+            
         ];
     }
 }
