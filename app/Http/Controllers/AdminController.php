@@ -47,6 +47,10 @@ class AdminController extends Controller
         return redirect('/dashboard');
     }
 
+    public function checkCompetitors() {
+        return view('admin.dashboard-contest-competitors');
+    }
+
     public function store(createContestRequest $request){
 
       //Method 1: Validation on forms

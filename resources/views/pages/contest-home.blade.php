@@ -10,7 +10,7 @@
    <div class="container">
      <div class="row">
        @foreach($contestsWithQuestions as $contest)
-         <a href="{{ url('/contests/'.$contest->id) }}">
+         <a class='contestItemLink'href="{{ url('/contests/'.$contest->id) }}">
          <div class="col-md-3 text-center headtitle contestItemContainer">
            <div class="contestItem">
              <i class="fa fa-gamepad" aria-hidden="true"></i>

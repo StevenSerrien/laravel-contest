@@ -61,6 +61,9 @@
             <th>
               End
             </th>
+            <th>
+              Check competitors
+            </th>
           </tr>
           @foreach ($contestsWithQuestions as $contest)
             <tr>
@@ -83,6 +86,9 @@
               </td>
               <td>
                 {{ $contest->end_date }}
+              </td>
+              <td>
+                <a href="{{ url('/dashboard/contests/'.$contest->id) }}">Check users</a>
               </td>
             </tr>
           @endforeach
