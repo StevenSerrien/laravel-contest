@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Http\RedirectResponse;
 use App\Contest;
 use Carbon\Carbon;
+use Illuminate\Support\Facades\Auth;
 
 class ContestController extends Controller
 {
@@ -31,48 +32,73 @@ class ContestController extends Controller
     }
 
     public function show($id) {
+      $contest_id = $id;
       $contest = Contest::with('questions')->find($id);
+
+      //Check if authenticated user already filles in the forms
+      $loggedUser = Auth::user();
+      $alreadyDidContest = $loggedUser->contests->contains($contest_id);
+
 
       if (is_null($contest)) {
         return redirect('/404');
       }
       else
       {
-        return view('pages/contest-detail', compact(['contest']));
+        if (!$alreadyDidContest) {
+          return view('pages/contest-detail', compact(['contest']));
+        }
+        else
+        {
+          return redirect('/contests/error');
+        }
+
       }
 
+    }
+
+    public function alreadyCompeted() {
+      return view('pages/contest-already-completed');
     }
 
 
 
     public function store(Request $request){
-      //Method 2: validation on forms
-      $this->validate($request, ['userAnswer1' => 'required', 'userAnswer2' => 'required']);
 
-      //Logic to check if user has given correct answers
       //Get contest id from hidden field on form
       $contest_id = $request->input('contest_id');
-      $contest = Contest::with('questions')->find($contest_id);
-      $questions = $contest->questions;
 
-      //Get correct answers from database
-      $correctFirstAnswer = strtolower($questions[0]->answer);
-      $correctSecondAnswer = strtolower($questions[1]->answer);
+      //Check if authenticated user already filles in the forms
+      $loggedUser = Auth::user();
+      $alreadyDidContest = $loggedUser->contests->contains($contest_id);
 
-      //Get answers from form filled in by user
-      $userFirstAnswer = strtolower($request->input('userAnswer1'));
-      $userSecondAnswer = strtolower($request->input('userAnswer2'));
+      if (!$alreadyDidContest) {
+        //Method 2: validation on forms
+        $this->validate($request, ['userAnswer1' => 'required', 'userAnswer2' => 'required']);
 
-      if (($correctFirstAnswer == $userFirstAnswer) &&  ($correctSecondAnswer == $userSecondAnswer)) {
-        return redirect('/404');
+        //Logic to check if user has given correct answers
+
+        $contest = Contest::with('questions')->find($contest_id);
+        $questions = $contest->questions;
+
+        //Get correct answers from database
+        $correctFirstAnswer = strtolower($questions[0]->answer);
+        $correctSecondAnswer = strtolower($questions[1]->answer);
+
+        //Get answers from form filled in by user
+        $userFirstAnswer = strtolower($request->input('userAnswer1'));
+        $userSecondAnswer = strtolower($request->input('userAnswer2'));
+
+        if (($correctFirstAnswer == $userFirstAnswer) &&  ($correctSecondAnswer == $userSecondAnswer)) {
+          Auth::user()->contests()->attach($contest_id);
+          return redirect('/contests/completion');
+        }
+        else {
+          return redirect('/contests/completion');
+        }
       }
-
-
-      return redirect('/contests');
-
-
+      else{
+        return redirect('/contests/error');
+      }
     }
-
-
-
 }

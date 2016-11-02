@@ -25,11 +25,11 @@ class createContestRequest extends FormRequest
     {
         return [
           'name' => 'required|min:3',
-          'description' => 'required|min:6',
-          'question1' => 'required|min:6',
-          'answer1' => 'required|min:6',
-          'question2' => 'required|min:6',
-          'answer2' => 'required|min:6',
+          'description' => 'required|min:1',
+          'question1' => 'required|min:1',
+          'answer1' => 'required|min:1',
+          'question2' => 'required|min:1',
+          'answer2' => 'required|min:1',
           'start_date' => 'required|date',
           'end_date' => 'required|date'
         ];

@@ -18,7 +18,10 @@ class Contest extends Model
   public function questions()
   {
           return $this->hasMany('App\Question');
+  }
 
+  public function users() {
+    return $this->belongsToMany('App\Contest');
   }
 
 }

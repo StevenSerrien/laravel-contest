@@ -23,8 +23,14 @@ Use Carbon\Carbon;
 Route::get('/', 'PagesController@index');
 
 Route::get('/contests', 'ContestController@index');
+Route::get('/contests/completion', function(){
+  return view('pages/contest-completion');
+});
+Route::get('/contests/error', 'ContestController@alreadyCompeted');
 Route::get('/contests/{id}', 'ContestController@show');
 Route::post('/contests', 'ContestController@store');
+
+
 
 
 Auth::routes();
@@ -52,6 +58,9 @@ Route::get('/user/delete/{id}', 'AdminController@destroy');
 
 
 Route::get('/sql', function(){
+
+
+
 
 
     // return Contest::with('questions')->find(13);

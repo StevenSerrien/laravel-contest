@@ -9,7 +9,7 @@
   </div>
    <div class="container">
      <div class="row">
-       <h1>You participated in this contest. Good luck. At the end a random contestant will be chosen from the pool.</h1>
+       <h1>You already competed in this contest. Sorry! Try another contest ;)</h1>
      </div>
    </div><
   </div>
