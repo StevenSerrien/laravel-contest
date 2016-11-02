@@ -61,8 +61,28 @@ Route::get('/404', 'ErrorController@notFound');
 
 Route::get('/sql', function(){
 
-$users = Contest::find(19)->users();
-return $users->inRandomOrder()->first();
+$contestsWithoutWinner = Contest::all()->where('winner_id', NULL);
+
+foreach ($contestsWithoutWinner as $contest) {
+  $now = Carbon::now();
+  $end_date = Carbon::parse($contest->end_date);
+
+  if ($now->gte($end_date)) {
+  $winner = Contest::find($contest->id)->users()->inRandomOrder()->first();
+  $winner_id = Contest::find($contest->id)->users()->inRandomOrder()->first()->id;
+
+ $contest->winner_id = $winner_id;
+ $contest->save();
+
+ return $contest;
+
+
+  }
+
+}
+
+// return $users->inRandomOrder()->first();
+
 
 
   // return $users = Contest::find(17)->users()->get();
