@@ -14,6 +14,7 @@
                <div class="panel-heading">Compete in this contest! <br> Answer all questions correctly and you will be inserted into the contestantspool</div>
                <div class="panel-body">
                  {!! Form::open(['url' => '/contests']) !!}
+                 {!! Form::hidden('contest_id', $contest->id ) !!}
                  @foreach ($contest->questions as $index => $question)
                    <div class="form group">
                      {!! Form::label('userAnswer'.($index + 1), $question->question) !!}
@@ -26,6 +27,13 @@
 
 
                    {!! Form::close() !!}
+                   @if ($errors->any())
+                     <ul class='alert alert-danger'>
+                       @foreach ($errors->all() as $error)
+                         <li>{{ $error }}</li>
+                       @endforeach
+                     </ul>
+                   @endif
                </div>
            </div>
        </div>

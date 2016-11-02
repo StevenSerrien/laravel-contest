@@ -26,6 +26,7 @@ Route::get('/contests', 'ContestController@index');
 Route::get('/contests/{id}', 'ContestController@show');
 Route::post('/contests', 'ContestController@store');
 
+
 Auth::routes();
 
 Route::group(['middleware' => 'admin'], function()
@@ -51,6 +52,9 @@ Route::get('/user/delete/{id}', 'AdminController@destroy');
 
 
 Route::get('/sql', function(){
+
+
+    // return Contest::with('questions')->find(13);
 
   // Get all contests with their questions in JSON
   // return Contest::with('questions')->findOrFail(8);

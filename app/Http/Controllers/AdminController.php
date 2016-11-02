@@ -48,7 +48,7 @@ class AdminController extends Controller
 
     public function store(createContestRequest $request){
 
-
+      //Method 1: Validation on forms
 
 
       $contest = Contest::create([
