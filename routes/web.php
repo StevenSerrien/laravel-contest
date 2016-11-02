@@ -60,26 +60,35 @@ Route::get('/404', 'ErrorController@notFound');
 
 
 Route::get('/sql', function(){
+return  $contestsWithWinners = Contest::where('winner_id', '!=', null)->join('users', 'users.id', '=','contests.winner_id')->orderBy('end_date', 'ASC')->get();
 
-$contestsWithoutWinner = Contest::all()->where('winner_id', NULL);
-
-foreach ($contestsWithoutWinner as $contest) {
-  $now = Carbon::now();
-  $end_date = Carbon::parse($contest->end_date);
-
-  if ($now->gte($end_date)) {
-  $winner = Contest::find($contest->id)->users()->inRandomOrder()->first();
-  $winner_id = Contest::find($contest->id)->users()->inRandomOrder()->first()->id;
-
- $contest->winner_id = $winner_id;
- $contest->save();
-
- return $contest;
+  // $contestsWithWinners = Contest::where('winner_id', '!=', null)->get();
+  //
+  // foreach ($contestsWithWinners as $contest) {
+  //   $winner_id = $contest->winner_id;
+  //   $winners[] = User::where('id', '=', $winner_id)->get();
+  // }
+  // return $winners;
 
 
-  }
 
-}
+
+// $contestsWithoutWinner = Contest::all()->where('winner_id', NULL);
+//
+// foreach ($contestsWithoutWinner as $contest) {
+//   $now = Carbon::now();
+//   $end_date = Carbon::parse($contest->end_date);
+//
+//   if ($now->gte($end_date)) {
+//   $winner = Contest::find($contest->id)->users()->inRandomOrder()->first();
+//   $winner_id = Contest::find($contest->id)->users()->inRandomOrder()->first()->id;
+//
+//   $contest->winner_id = $winner_id;
+//   $contest->save();
+//
+//   }
+//
+// }
 
 // return $users->inRandomOrder()->first();
 

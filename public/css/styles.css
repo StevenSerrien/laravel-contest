@@ -12,6 +12,34 @@
 
 }
 
+.winnersContainer {
+  background-color: rgb(54, 54, 54);
+  min-height: 40vh;
+  color: white;
+  font-family: 'Raleway', sans-serif;
+}
+
+.card {
+  background: #222222;
+  border-radius: 2px;
+  display: inline-block;
+
+  margin: 1rem;
+  position: relative;
+  min-height: 150px;;
+  min-width: 100%;
+
+}
+
+.card h5 {
+  position: relative;
+  top: 30px;
+}
+
+.card-3 {
+  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+}
+
 .call-to-action .headtitle {
   position: relative;
   top:15%;

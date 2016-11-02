@@ -8,18 +8,29 @@
       <a href="/contests">TAKE ME THERE</a>
     </div>
   </div>
-   <div class="container">
-     <div class="row centered">
-       <div class="col-md-3">
+  <div class="winnersContainer">
+    <div class="container">
+      <div class="row centered text-center headtitle">
+        @if ($contestsWithWinners)
+          <h1>Winners from previous contests</h1>
+          @foreach ($contestsWithWinners as $contestWithWinner)
+            <div class="col-md-3">
+              <div class="card card-3">
+                <h3 class='text-center'>{{ $contestWithWinner->name }}</h3>
+                  <h4 class='text-center'>{{ $contestWithWinner->firstName }} {{ $contestWithWinner->lastName }}</h4>
+                  <h5 class='text-center'>Ended on: {{ $contestWithWinner->end_date }}</h4>
+              </div>
 
-       </div>
-       <div class="col-md-3">
 
-       </div>
-       <div class="col-md-3">
+            </div>
+          @endforeach
+        @else
+          <h1>There were no previous winners selected yet. Come back soon!</h1>
+        @endif
 
-       </div>
-     </div>
-   </div><!--container -->
+      </div>
+    </div><!--container -->
+  </div>
+
   </div><!--/service -->
 @stop
