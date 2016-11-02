@@ -61,7 +61,7 @@ Route::get('/sql', function(){
 
 
 
-
+  return Auth::user()->log()->get();
 
     // return Contest::with('questions')->find(13);
 

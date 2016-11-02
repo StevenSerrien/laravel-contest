@@ -43,12 +43,13 @@
               <li><a href="{{ url('/login') }}">LOGIN</a></li>
               <li><a href="{{ url('/register') }}">REGISTER</a></li>
               @else
+                @if ((Auth::user()->roles()->first()->name) == "administrator")
+                  <li><a href="{{ url('/dashboard') }}">
+                      ADMIN DASHBOARD
+                  </a>
+                  </li>
+                @endif
                 <li class="dropdown">
-                  @if ((Auth::user()->roles()->first()->name) == "administrator")
-                    <a href="{{ url('/dashboard') }}">
-                        CONTESTS
-                    </a>
-                  @endif
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
                         {{ Auth::user()->firstName }} <span class="caret"></span>
                     </a>

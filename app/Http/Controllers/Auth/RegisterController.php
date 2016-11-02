@@ -6,6 +6,9 @@ use App\User;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Foundation\Auth\RegistersUsers;
+use Illuminate\Http\Request;
+// use App\Http\Controllers\Auth\IpAddress;
+use App\Log;
 
 class RegisterController extends Controller
 {
@@ -79,6 +82,12 @@ class RegisterController extends Controller
         ]);
         //Add default member role to new users
         $user->roles()->attach(2);
+
+        //Store IP on initial register
+        $ip = Log::firstOrCreate(['user_id' => $user->id, 'ipaddress' => request()->ip()]);
         return $user;
-    }
+
+
+
+}
 }
