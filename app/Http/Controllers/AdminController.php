@@ -48,9 +48,10 @@ class AdminController extends Controller
     }
 
     public function checkCompetitors($id) {
-        $contestUsers = Contest::find($id)->users()->get();
+      //Only get users that filled in their form correctly and signed for the contest
+        $users = Contest::find($id)->users()->get();
 
-        return view('admin.dashboard-contest-competitors', compact(['contestUsers']));
+        return view('admin.dashboard-contest-competitors', compact(['users']));
     }
 
     public function store(createContestRequest $request){

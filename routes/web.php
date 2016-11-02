@@ -41,6 +41,7 @@ Route::group(['middleware' => 'admin'], function()
   Route::get('/dashboard/create', 'AdminController@create');
   Route::post('/dashboard', 'AdminController@store');
   Route::get('/dashboard/contests/{id}', 'AdminController@checkCompetitors');
+  Route::get('/user/delete/{id}', 'AdminController@destroy');
 
 
 });
@@ -55,14 +56,16 @@ Route::get('/404', 'ErrorController@notFound');
 
 
 
-Route::get('/user/delete/{id}', 'AdminController@destroy');
+
 
 
 Route::get('/sql', function(){
 
+$users = Contest::find(19)->users();
+return $users->inRandomOrder()->first();
 
 
-  return Auth::user()->log()->get();
+  // return $users = Contest::find(17)->users()->get();
 
     // return Contest::with('questions')->find(13);
 

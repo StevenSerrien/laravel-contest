@@ -30,7 +30,7 @@ class createContestRequest extends FormRequest
           'answer1' => 'required|min:1',
           'question2' => 'required|min:1',
           'answer2' => 'required|min:1',
-          'start_date' => 'required|date',
+          'start_date' => 'date',
           'end_date' => 'required|date'
         ];
     }
