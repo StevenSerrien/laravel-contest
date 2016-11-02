@@ -8,6 +8,7 @@ $baseDir = dirname($vendorDir);
 return array(
     'AddAnswerToQuestions' => $baseDir . '/database/migrations/2016_10_31_200615_add_answer_to_questions.php',
     'AddDatesToContests' => $baseDir . '/database/migrations/2016_11_01_123326_add_dates_to_contests.php',
+    'AddWinneridToContest' => $baseDir . '/database/migrations/2016_11_02_155515_add_winnerid_to_contest.php',
     'ContestTableSeeder' => $baseDir . '/database/seeds/ContestTableSeeder.php',
     'CreateContestUserPivotTable' => $baseDir . '/database/migrations/2016_10_30_163940_create_contest_user_pivot_table.php',
     'CreateContestsTable' => $baseDir . '/database/migrations/2016_10_30_125855_create_contests_table.php',

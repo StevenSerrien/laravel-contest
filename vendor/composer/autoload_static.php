@@ -324,6 +324,7 @@ class ComposerStaticInit84ff6777f3cdb85d5a367dfd79fded4d
     public static $classMap = array (
         'AddAnswerToQuestions' => __DIR__ . '/../..' . '/database/migrations/2016_10_31_200615_add_answer_to_questions.php',
         'AddDatesToContests' => __DIR__ . '/../..' . '/database/migrations/2016_11_01_123326_add_dates_to_contests.php',
+        'AddWinneridToContest' => __DIR__ . '/../..' . '/database/migrations/2016_11_02_155515_add_winnerid_to_contest.php',
         'ContestTableSeeder' => __DIR__ . '/../..' . '/database/seeds/ContestTableSeeder.php',
         'CreateContestUserPivotTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_30_163940_create_contest_user_pivot_table.php',
         'CreateContestsTable' => __DIR__ . '/../..' . '/database/migrations/2016_10_30_125855_create_contests_table.php',
