@@ -27,13 +27,21 @@ Route::get('/contests/completion', function(){
   return view('pages/contest-completion');
 });
 Route::get('/contests/error', 'ContestController@alreadyCompeted');
-Route::get('/contests/{id}', 'ContestController@show');
-Route::post('/contests', 'ContestController@store');
+
+
 
 
 
 
 Auth::routes();
+
+Route::group(['middleware' => 'auth'], function()
+{
+  Route::get('/contests/{id}', 'ContestController@show');
+  Route::post('/contests', 'ContestController@store');
+});
+
+
 
 Route::group(['middleware' => 'admin'], function()
 {

@@ -24,8 +24,10 @@ class Kernel extends ConsoleKernel
      */
     protected function schedule(Schedule $schedule)
     {
-        // $schedule->command('inspire')
-        //          ->hourly();
+
+      $schedule->command('chosethechosenone')
+      ->hourly()
+      ->between('23:00', '2:00');
     }
 
     /**
