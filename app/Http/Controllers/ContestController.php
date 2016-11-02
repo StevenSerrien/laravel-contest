@@ -27,7 +27,7 @@ class ContestController extends Controller
      */
     public function index()
     {
-        $contestsWithQuestions = Contest::with('questions')->ContestsUntilToday()->get();
+        $contestsWithQuestions = Contest::with('questions')->ContestsStartingFromToday()->get();
         return view('pages/contest-home', compact(['contestsWithQuestions']));
     }
 

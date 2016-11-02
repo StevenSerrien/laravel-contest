@@ -37,7 +37,7 @@
 
                     <div class="form group">
                       {!! Form::label('start_date', 'Start date:') !!}
-                      {!! Form::input('date' ,'start_date', date('Y-n-d'), ["class" => "form-control"]) !!}
+                      {!! Form::input('date' ,'start_date', date('Y-n-d'), ["class" => "form-control", "disabled" => "disabled"]) !!}
                     </div>
                     <div class="form group">
                       {!! Form::label('end_date', 'End date:') !!}

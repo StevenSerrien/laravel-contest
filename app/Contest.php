@@ -12,8 +12,8 @@ class Contest extends Model
       'name', 'description', 'start_date', 'end_date'
   ];
 
-  public function scopeContestsUntilToday ($query) {
-    $query->where('end_date', '<=', Carbon::now()->addDays(1));
+  public function scopeContestsStartingFromToday ($query) {
+    $query->where('start_date', '>=', Carbon::today());
   }
   public function questions()
   {

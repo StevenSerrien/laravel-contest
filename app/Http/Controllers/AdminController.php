@@ -9,6 +9,7 @@ use App\Contest;
 use App\Question;
 //use Request;
 use App\Http\Requests\createContestRequest;
+use Carbon\Carbon;
 
 
 class AdminController extends Controller
@@ -54,7 +55,7 @@ class AdminController extends Controller
       $contest = Contest::create([
           'name' => $request->get('name'),
           'description' => $request->get('description'),
-          'start_date' => $request->get('start_date'),
+          'start_date' => Carbon::now(),
           'end_date' => $request->get('end_date')
       ]);
        Question::create([
