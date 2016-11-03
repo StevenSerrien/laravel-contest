@@ -11,9 +11,6 @@ class ContestTableSeeder extends Seeder
      */
     public function run()
     {
-      DB::table('contests')->insert([
-          'name' => 'Battlefield 1',
-          'description' => 'Quiz over de WW1',
-      ]);
+      
     }
 }

@@ -67,8 +67,11 @@ Route::get('/404', 'ErrorController@notFound');
 
 
 
-Route::get('/sql', function(){
-return  $contestsWithWinners = Contest::where('winner_id', '!=', null)->join('users', 'users.id', '=','contests.winner_id')->orderBy('end_date', 'ASC')->get();
+// Route::get('/sql', function(){
+
+  // $user = User::where('firstName', 'Scarlett')->first();
+  // $user->roles()->attach(1);
+// return  $contestsWithWinners = Contest::where('winner_id', '!=', null)->join('users', 'users.id', '=','contests.winner_id')->orderBy('end_date', 'ASC')->get();
 
   // $contestsWithWinners = Contest::where('winner_id', '!=', null)->get();
   //
@@ -130,4 +133,4 @@ return  $contestsWithWinners = Contest::where('winner_id', '!=', null)->join('us
 
 
   //return User::with('roles')->find(9);
-});
+// });

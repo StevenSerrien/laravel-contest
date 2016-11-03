@@ -26,8 +26,7 @@ class Kernel extends ConsoleKernel
     {
 
       $schedule->command('chosethechosenone')
-      ->hourly()
-      ->between('23:00', '2:00');
+      ->hourly();
     }
 
     /**
