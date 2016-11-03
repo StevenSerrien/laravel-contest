@@ -8,7 +8,8 @@ class Question extends Model
 {
 
   protected $fillable = [
-      'question', 'answer', 'contest_id'];
+      'question', 'answer', 'contest_id'
+  ];
 
   public function contest() {
     return $this->belongsTo('App\Contest');

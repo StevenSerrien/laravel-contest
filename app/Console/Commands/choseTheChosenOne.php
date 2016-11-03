@@ -6,6 +6,7 @@ use Illuminate\Console\Command;
 use Carbon\Carbon;
 use App\User;
 use App\Contest;
+use Illuminate\Support\Facades\Mail;
 
 class choseTheChosenOne extends Command
 {
@@ -50,8 +51,19 @@ class choseTheChosenOne extends Command
         $winner = Contest::find($contest->id)->users()->inRandomOrder()->first();
         $winner_id = Contest::find($contest->id)->users()->inRandomOrder()->first()->id;
 
+        $user = User::find($winner_id);
+
         $contest->winner_id = $winner_id;
         $contest->save();
+
+
+
+        Mail::raw('A winner has been chosen for '.$contest->name.', the winner is'.$user->firstName.' his email is '.$user->email, function($message)
+            {
+              $message->subject('Winner is chosen!');
+              $message->from('noreply@mowly.be', 'Corsair Contest App');
+              $message->to('stevenserrien@gmail.com');
+            });
 
         }
       }
