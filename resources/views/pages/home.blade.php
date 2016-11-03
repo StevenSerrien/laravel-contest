@@ -4,7 +4,7 @@
 <div id="contest">
   <div class="row centered call-to-action">
     <div class="col-md-12 text-center headtitle">
-      <h1>EVERY WEEK, ANOTHER CONTEST</h1>
+      <h1>TEST YOUR KNOWLEDGE<br>IN OUR CONTESTS</h1>
       <a href="/contests">TAKE ME THERE</a>
     </div>
   </div>
